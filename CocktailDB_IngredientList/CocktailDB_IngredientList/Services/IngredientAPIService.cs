@@ -1,4 +1,5 @@
 ﻿using CocktailDB_IngredientList.Models;
+using CocktailDB_IngredientList.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,23 +9,21 @@ using System.Threading.Tasks;
 
 namespace CocktailDB_IngredientList.Services
 {
-	public class APIService : IAPIService
+	public class IngredientAPIService : IIngredientAPIService
 	{
-        private const string APIBaseUrl = "https://www.thecocktaildb.com/api/json";
-        private const string CurrentAPIVersion = "v1";
-        public async Task<List<Ingredient>> GetIngredientsAsync()
+        public async Task<IngredientListAPIResponse> GetIngredientsAsync()
         {
             try
             {
                 IngredientListAPIResponse ingredientListResponse = null;
                 HttpClient httpClient = new HttpClient();
-                var response = await httpClient.GetAsync(String.Format("{0}/{1}/1/list.php?i=list", APIBaseUrl, CurrentAPIVersion));
+                var response = await httpClient.GetAsync(String.Format("{0}/api/json/{1}/1/list.php?i=list", Constants.CocktailAPIBaseUrl, Constants.CocktailAPICurrentVersion));
                 if (response.IsSuccessStatusCode)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
                     ingredientListResponse = JsonConvert.DeserializeObject<IngredientListAPIResponse>(responseString);
                 }
-                return ingredientListResponse!=null ?  ingredientListResponse.Ingredients : new List<Ingredient>();
+                return ingredientListResponse;
             }
             catch (Exception e)
             {

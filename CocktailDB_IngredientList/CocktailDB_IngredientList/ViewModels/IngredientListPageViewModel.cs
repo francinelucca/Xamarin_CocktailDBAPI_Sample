@@ -1,5 +1,7 @@
 ﻿using CocktailDB_IngredientList.Models;
 using CocktailDB_IngredientList.Services;
+using CocktailDB_IngredientList.Utils;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,11 +18,16 @@ namespace CocktailDB_IngredientList.ViewModels
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		IAPIService _apiService = new APIService();
+		IIngredientAPIService _apiService;
 		public ObservableCollection<Ingredient> Ingredients { get; set; }
+
+		public bool IsLoading { get; set; }
 
 		public IngredientListPageViewModel()
 		{
+		// Comment and UnComment following lines to alternate between HttpClient and Refit for API Service.
+		//	_apiService = new IngredientAPIService();
+			_apiService = RestService.For<IIngredientAPIService>(Constants.CocktailAPIBaseUrl);
 			GetIngredients();
 		}
 
@@ -30,8 +37,11 @@ namespace CocktailDB_IngredientList.ViewModels
 			{
 				try
 				{
-					Ingredients = new ObservableCollection<Ingredient>((await _apiService.GetIngredientsAsync()).OrderBy(i => i.Name));
+					IsLoading = true;
+					var response = await _apiService.GetIngredientsAsync();
 
+					Ingredients = response != null ? new ObservableCollection<Ingredient>(response.Ingredients.OrderBy(i => i.Name)) : new ObservableCollection<Ingredient>();
+					IsLoading = false;
 				}
 				catch (Exception e)
 				{
