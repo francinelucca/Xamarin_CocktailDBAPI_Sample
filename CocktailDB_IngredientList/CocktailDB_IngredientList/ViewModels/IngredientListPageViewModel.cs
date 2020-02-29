@@ -28,7 +28,6 @@ namespace CocktailDB_IngredientList.ViewModels
 		// Comment and UnComment following lines to alternate between HttpClient and Refit for API Service.
 		//	_apiService = new IngredientAPIService();
 			_apiService = RestService.For<IIngredientAPIService>(Constants.CocktailAPIBaseUrl);
-			GetIngredients();
 		}
 
 		public async void GetIngredients()
@@ -58,7 +57,7 @@ namespace CocktailDB_IngredientList.ViewModels
 			if (Connectivity.NetworkAccess != NetworkAccess.Internet)
 			{
 				HasInternet = false;
-				await App.Current.MainPage.DisplayAlert("No Internet Connection", "Can not get RNC information because there is no internet connection available. Please connect to the internet and try again.", "OK");
+				await App.Current.MainPage.DisplayAlert("No Internet Connection", "Can not get ingredients information because there is no internet connection available. Please connect to the internet and try again.", "OK");
 			}
 			return HasInternet;
 

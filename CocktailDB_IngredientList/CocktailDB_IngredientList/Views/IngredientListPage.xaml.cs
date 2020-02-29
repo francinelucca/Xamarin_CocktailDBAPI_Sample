@@ -13,10 +13,16 @@ namespace CocktailDB_IngredientList.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class IngredientListPage : ContentPage
 	{
+		public IngredientListPageViewModel Vm;
 		public IngredientListPage()
 		{
 			InitializeComponent();
-			this.BindingContext = new IngredientListPageViewModel();
+			this.BindingContext = Vm =  new IngredientListPageViewModel();
+		}
+
+		protected override async void OnAppearing()
+		{
+			Vm.GetIngredients();
 		}
 	}
 }
