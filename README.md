@@ -13,5 +13,5 @@ Sample Xamarin Forms Project that retrieves data from TheCocktailDB API and pres
 ### iOS Visuals (iPhone 11):
 
 #### Ingredient List Page
-![IngredientList](Images/iOS/IngredientListView.png)
+![IngredientList](Images/iOS/IngredientListView.jpg)
 
