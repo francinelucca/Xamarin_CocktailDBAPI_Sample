@@ -45,6 +45,7 @@ namespace CocktailDB_IngredientList.ViewModels
 				}
 				catch (Exception e)
 				{
+					IsLoading = false;
 					await App.Current.MainPage.DisplayAlert("An Error Occured", e.Message, "OK");
 				}
 			}
