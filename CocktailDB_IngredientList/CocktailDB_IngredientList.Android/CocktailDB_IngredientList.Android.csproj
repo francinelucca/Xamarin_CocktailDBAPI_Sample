@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E9D990F-9C95-41EC-9256-6D97EAD221F0}</ProjectGuid>
+    <ProjectGuid>{A6550406-EF6F-45C2-B59F-3EE422EB7C0B}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CocktailDB_IngredientList\CocktailDB_IngredientList.csproj">
-      <Project>{7B7870DC-5164-41AF-991F-58A21B7EFDA8}</Project>
+      <Project>{5A99A77D-B16F-4555-A6F3-7FFD046844FC}</Project>
       <Name>CocktailDB_IngredientList</Name>
     </ProjectReference>
   </ItemGroup>

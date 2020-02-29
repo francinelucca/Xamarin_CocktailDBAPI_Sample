@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CocktailDB_IngredientList.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace CocktailDB_IngredientList
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new IngredientListPage();
 		}
 
 		protected override void OnStart()

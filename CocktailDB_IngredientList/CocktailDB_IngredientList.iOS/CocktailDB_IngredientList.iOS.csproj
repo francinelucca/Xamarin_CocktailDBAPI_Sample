@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3ADF16F8-175C-4F78-99A8-FC95835886C2}</ProjectGuid>
+    <ProjectGuid>{FEDB6108-6BF6-4D2C-BA45-3CAD9C5703D9}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -128,7 +128,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\CocktailDB_IngredientList\CocktailDB_IngredientList.csproj">
-      <Project>{7B7870DC-5164-41AF-991F-58A21B7EFDA8}</Project>
+      <Project>{5A99A77D-B16F-4555-A6F3-7FFD046844FC}</Project>
       <Name>CocktailDB_IngredientList</Name>
     </ProjectReference>
   </ItemGroup>
